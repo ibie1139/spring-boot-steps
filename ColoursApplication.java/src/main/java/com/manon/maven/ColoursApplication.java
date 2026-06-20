@@ -10,6 +10,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @Log
 public class ColoursApplication implements CommandLineRunner {
+    private final ColourPrinter colourPrinter;
+
+    public ColoursApplication(final ColourPrinter colourPrinter) {
+        this.colourPrinter = colourPrinter;
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(ColoursApplication.class, args);
@@ -17,7 +22,6 @@ public class ColoursApplication implements CommandLineRunner {
 
     @Override
     public void run(final String... args) {
-        final ColourPrinter colourPrinter = new ColourPrinterImpl();
         log.info(colourPrinter.print());
     }
 

@@ -6,14 +6,16 @@ import com.manon.maven.services.BluePrinter;
 import com.manon.maven.services.GreenPrinter;
 
 public class ColourPrinterImpl implements ColourPrinter {
-    final private RedPrinter redPrinter;
-    final private BluePrinter bluePrinter;
-    final private GreenPrinter greenPrinter;
+    private final RedPrinter redPrinter;
+    private final BluePrinter bluePrinter;
+    private final GreenPrinter greenPrinter;
 
-    public ColourPrinterImpl() {
-        this.redPrinter = new EnglishRedPrinter();
-        this.bluePrinter = new EnglishBluePrinter();
-        this.greenPrinter = new EnglishGreenPrinter();
+    // After the printer beans are created, they are declared in constructor.
+    // Spring's IoC container wires the implementation class of the interface to ColourPrinterImpl
+    public ColourPrinterImpl(final RedPrinter redPrinter, final BluePrinter bluePrinter, final GreenPrinter greenPrinter) {
+        this.redPrinter = redPrinter;
+        this.bluePrinter = bluePrinter;
+        this.greenPrinter = greenPrinter;
     }
 
     @Override

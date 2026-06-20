@@ -1,0 +1,11 @@
+package com.manon.maven.services.impl;
+
+import com.manon.maven.services.BluePrinter;
+
+public class SpanishBluePrinter implements BluePrinter {
+
+    @Override
+    public String print() {
+        return "azul";
+    }
+}
